@@ -1,0 +1,14 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../../App.svelte",
+    "../../IFeelLucky.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n  import { onMount } from \"svelte\";\n  import IFeelLucky from \"./backgrounds/IFeelLucky.svelte\";\n</script>\n\n<style>\n  main {\n    text-align: center;\n    padding: 1em;\n    max-width: 240px;\n    margin: 0 auto;\n  }\n\n  h1 {\n    color: #ff3e00;\n    text-transform: uppercase;\n    font-size: 4em;\n    font-weight: 100;\n  }\n\n  @media (min-width: 640px) {\n    main {\n      max-width: none;\n    }\n  }\n</style>\n\n<main>\n  <h1>BlackBackground</h1>\n\n  <IFeelLucky />\n</main>\n",
+    "<script>\n  import { onMount } from \"svelte\";\n\n  let canvas;\n\n  $: base64Canvas = canvas ? canvas.toDataURL(\"image/png;base64\") : \"\";\n\n  onMount(() => {\n    const ctx = canvas.getContext(\"2d\");\n    let frame;\n\n    (function loop() {\n      frame = requestAnimationFrame(loop);\n\n      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);\n\n      for (let p = 0; p < imageData.data.length; p += 4) {\n        const i = p / 4;\n        const x = i % canvas.width;\n        const y = (i / canvas.height) >>> 0;\n\n        const t = window.performance.now();\n\n        const r = 64 + (128 * x) / canvas.width + 64 * Math.sin(t / 1000);\n        const g = 64 + (128 * y) / canvas.height + 64 * Math.cos(t / 1000);\n        const b = 128;\n\n        imageData.data[p + 0] = r;\n        imageData.data[p + 1] = g;\n        imageData.data[p + 2] = b;\n        imageData.data[p + 3] = 255;\n      }\n\n      ctx.putImageData(imageData, 0, 0);\n    })();\n\n    return () => {\n      cancelAnimationFrame(frame);\n    };\n  });\n</script>\n\n<style>\n  main {\n    text-align: center;\n    padding: 1em;\n    max-width: 240px;\n    margin: 0 auto;\n  }\n\n  h1 {\n    color: #ff3e00;\n    text-transform: uppercase;\n    font-size: 4em;\n    font-weight: 100;\n  }\n\n  @media (min-width: 640px) {\n    main {\n      max-width: none;\n    }\n  }\n</style>\n\n<main>\n  <h2>I Feel Lucky</h2>\n\n  <canvas bind:this={canvas} width={32} height={32} />\n\n  <a href={base64Canvas} download=\"BlackBackground\">Download Random</a>\n</main>\n"
+  ],
+  "names": [],
+  "mappings": "AAME,IAAI,eAAC,CAAC,AACJ,UAAU,CAAE,MAAM,CAClB,OAAO,CAAE,GAAG,CACZ,SAAS,CAAE,KAAK,CAChB,MAAM,CAAE,CAAC,CAAC,IAAI,AAChB,CAAC,AAED,EAAE,eAAC,CAAC,AACF,KAAK,CAAE,OAAO,CACd,cAAc,CAAE,SAAS,CACzB,SAAS,CAAE,GAAG,CACd,WAAW,CAAE,GAAG,AAClB,CAAC,AAED,MAAM,AAAC,YAAY,KAAK,CAAC,AAAC,CAAC,AACzB,IAAI,eAAC,CAAC,AACJ,SAAS,CAAE,IAAI,AACjB,CAAC,AACH,CAAC;ACmBD,IAAI,eAAC,CAAC,AACJ,UAAU,CAAE,MAAM,CAClB,OAAO,CAAE,GAAG,CACZ,SAAS,CAAE,KAAK,CAChB,MAAM,CAAE,CAAC,CAAC,IAAI,AAChB,CAAC,AASD,MAAM,AAAC,YAAY,KAAK,CAAC,AAAC,CAAC,AACzB,IAAI,eAAC,CAAC,AACJ,SAAS,CAAE,IAAI,AACjB,CAAC,AACH,CAAC"
+}
