@@ -9,25 +9,32 @@ import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 import { minify } from "html-minifier-terser";
 
-const production = !process.env.ROLLUP_WATCH;
+const isProduction = !process.env.ROLLUP_WATCH;
 
 // TODO: possibly inline everything?
-const template = async ({ attributes, files, bundle, publicPath, title }) => {
+const template = ({ isProduction }) => async ({
+  attributes,
+  files,
+  bundle,
+  publicPath,
+  title,
+}) => {
   const scripts = (files.js || [])
-    .map(({ fileName, code, map }) => {
-      const hash = crypto
-        .createHash("sha512")
-        .update(code)
-        .digest("hex")
-        .slice(0, 25);
-      const hashedFileName = fileName.replace("[hash]", hash);
-      const attrs = makeHtmlAttributes(attributes.script);
-      const file = bundle[fileName];
-      file.fileName = hashedFileName;
-      delete bundle[fileName];
-      bundle[hashedFileName] = file;
+    .map(({ fileName, code }) => {
+      const hash = () =>
+        crypto.createHash("sha512").update(code).digest("hex").slice(0, 25);
 
-      return `<script defer src="${publicPath}${hashedFileName}"${attrs}></script>`;
+      const newFileName = isProduction
+        ? fileName.replace("[hash]", hash())
+        : fileName;
+
+      const file = bundle[fileName];
+      file.fileName = newFileName;
+      delete bundle[fileName];
+      bundle[newFileName] = file;
+
+      const attrs = makeHtmlAttributes(attributes.script);
+      return `<script defer src="${publicPath}${newFileName}"${attrs}></script>`;
     })
     .join("\n");
 
@@ -40,15 +47,22 @@ const template = async ({ attributes, files, bundle, publicPath, title }) => {
 
   console.log({ title });
 
-  return minify(
-    fs
-      .readFileSync("./src/index.html")
-      .toString()
-      .replace("{{HTML_ATTRIBUTES}}", makeHtmlAttributes(attributes.html))
-      .replace("{{HTML_LINKS}}", links)
-      .replace("{{HTML_SCRIPTS}}", scripts),
-    { collapseWhitespace: true, minifyCSS: true, minifyJS: true }
-  );
+  let templateString = fs
+    .readFileSync("./src/index.html")
+    .toString()
+    .replace("{{HTML_ATTRIBUTES}}", makeHtmlAttributes(attributes.html))
+    .replace("{{HTML_LINKS}}", links)
+    .replace("{{HTML_SCRIPTS}}", scripts);
+
+  if (isProduction) {
+    templateString = minify(templateString, {
+      collapseWhitespace: true,
+      minifyCSS: true,
+      minifyJS: true,
+    });
+  }
+
+  return templateString;
 };
 
 export default {
@@ -60,9 +74,11 @@ export default {
     file: "bundle-[hash].js",
   },
   plugins: [
-    del({ runOnce: false, targets: ["bundle-*", "index.html"] }),
+    isProduction &&
+      del({ runOnce: false, targets: ["bundle-*", "index.html"] }),
+
     svelte({
-      dev: !production,
+      dev: !isProduction,
       // css: (css) => {
       //   css.write("build/bundle.css");
       // },
@@ -74,15 +90,15 @@ export default {
     }),
     commonjs(),
 
-    !production && serve(),
+    !isProduction && serve(),
 
-    !production && livereload("."),
+    !isProduction && livereload("."),
 
     html({
-      template,
+      template: template({ isProduction }),
     }),
 
-    production && terser(),
+    isProduction && terser(),
   ],
   watch: {
     clearScreen: false,
