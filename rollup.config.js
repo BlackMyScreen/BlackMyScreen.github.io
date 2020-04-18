@@ -40,9 +40,9 @@ export default {
     // the bundle has been generated
     !production && serve(),
 
-    // Watch the `src` directory and refresh the
+    // Watch the `.` directory and refresh the
     // browser on changes when not in production
-    !production && livereload("src"),
+    !production && livereload("."),
 
     // If we're building for production (npm run build
     // instead of npm run dev), minify
