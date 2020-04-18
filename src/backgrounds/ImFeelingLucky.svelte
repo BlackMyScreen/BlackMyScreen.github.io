@@ -19,10 +19,11 @@
       let frame;
       frame = requestAnimationFrame(loop);
 
-      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const imageData = ctx.getImageData(0, 0, width, height);
 
       if (window.Worker && canvasWorker) {
-        canvasWorker.postMessage([canvas.width, canvas.height, imageData]);
+        // FIXME: width & height not updating as expected?
+        canvasWorker.postMessage([width, height, imageData]);
         canvasWorker.onmessage = e => {
           ctx.putImageData(e.data, 0, 0);
           base64Url = canvas.toDataURL("image/png;base64");

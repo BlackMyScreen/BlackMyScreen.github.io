@@ -15,7 +15,7 @@
   }
 </script>
 
-<!-- <svelte:window bind:innerWidth bind:innerHeight /> -->
+<svelte:window bind:innerWidth bind:innerHeight />
 
 <main>
   <h5>Your current devices display dimensions</h5>
