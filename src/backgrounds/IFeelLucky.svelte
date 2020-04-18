@@ -1,9 +1,12 @@
 <script>
   import { onMount } from "svelte";
+  import Button from "../Button.svelte";
+
+  export let width;
+  export let height;
 
   let canvas;
-
-  $: base64Canvas = canvas ? canvas.toDataURL("image/png;base64") : "";
+  let base64Url;
 
   onMount(() => {
     const ctx = canvas.getContext("2d");
@@ -32,6 +35,8 @@
       }
 
       ctx.putImageData(imageData, 0, 0);
+
+      base64Url = canvas.toDataURL("image/png;base64");
     })();
 
     return () => {
@@ -41,31 +46,25 @@
 </script>
 
 <style>
-  main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
-  }
 
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 100;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
-  }
 </style>
 
 <main>
   <h2>I Feel Lucky</h2>
 
-  <canvas bind:this={canvas} width={32} height={32} />
+  <p>
+    I know this is definitely not black 😂 yet while developing this site I came
+    across this neat effect and couldn't resist including it.
+  </p>
+  <p>
+    <strong>Note:</strong>
+    You will download the picture at the moment of your click on the download
+    button, meaning it's a static image and the downloaded .png file won't be
+    animated.
+  </p>
 
-  <a href={base64Canvas} download="BlackBackground">Download Random</a>
+  <canvas bind:this={canvas} {width} {height} />
+  {#if base64Url}
+    <Button href={base64Url} filename="BlackMyScreen.png">Download</Button>
+  {/if}
 </main>
