@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import BlackBackground from "./backgrounds/BlackBackground.svelte";
-  import ImFeelLucky from "./backgrounds/ImFeelLucky.svelte";
+  import ImFeelingLucky from "./backgrounds/ImFeelingLucky.svelte";
 
   let innerWidth = window.innerWidth;
   let innerHeight = window.innerHeight;
@@ -31,6 +31,6 @@
   </section>
 
   <section>
-    <ImFeelLucky {width} {height} />
+    <ImFeelingLucky {width} {height} />
   </section>
 </main>
