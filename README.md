@@ -8,7 +8,7 @@ Visit [BlackMyScreen.github.io](https://BlackMyScreen.github.io) to download a b
 
 Especially useful to save battery on OLED displays.
 
-In addition it includes a colorful "I feel lucky" background, go and try it out 😍
+In addition it includes a colorful "I'm Feeling Lucky" background, go and try it out 😍
 
 ## How
 
@@ -16,7 +16,9 @@ I've used svelte to generate the js as I don't find other opportunities to use i
 
 Images are being rendered via `<canvas/>` the page itself has no dependencies.
 
-The "I feel lucky" background comes almost straight from the Svelte tutorial on [Bindings/This](https://svelte.dev/tutorial/bind-this)
+The "I'm Feeling Lucky" background comes almost straight from the Svelte tutorial on [Bindings/This](https://svelte.dev/tutorial/bind-this)
+
+Update: The animation is now using a dedicated **WebWorker** 🚀 to calculate the next colors, which made the whole site much more responsive. Before that even hovering a link would take seconds before it changed its colors 😬
 
 ## Why ask for money?
 
