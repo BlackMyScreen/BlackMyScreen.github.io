@@ -1,18 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset='utf-8'>
-	<meta name='viewport' content='width=device-width,initial-scale=1'>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-	<title>Svelte app</title>
+    <title>BlackMyScreen</title>
 
-	<link rel='icon' type='image/png' href='/favicon.png'>
-	<link rel='stylesheet' href='/global.css'>
-	<link rel='stylesheet' href='/build/bundle.css'>
+    <style>
+      body {
+        background: #222;
+        color: #ececec;
+        font-family: sans-serif;
+        font-size: 1.2rem;
+        line-height: 1.4;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        text-align: center;
+      }
+      section {
+        margin-top: 4rem;
+      }
+      canvas {
+        max-width: 100%;
+        margin: 0 auto;
+        display: block;
+        border: 1px solid #828282;
+      }
+      a {
+        color: #ececec;
+      }
+      a:hover,
+      a:focus {
+        color: #0a8a00;
+      }
+      .container {
+        width: 90%;
+        max-width: 35rem;
+        margin: 0 auto;
+      }
+      .gaiama {
+        display: flex;
+        align-items: center;
+      }
+      .gaiama img {
+        margin-right: 3rem;
+      }
+      .legal {
+        font-size: 0.9rem;
+      }
+    </style>
 
-	<script defer src='/build/bundle.js'></script>
-</head>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- <link rel="stylesheet" href="/global.css" /> -->
+    <link rel="stylesheet" href="/build/bundle.css" />
 
-<body>
-</body>
+    <script defer src="/build/bundle.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>BlackMyScreen</h1>
+
+      <p>
+        🖤 Download a black background image for your phone, tablet or desktop
+        for <strong>free</strong>.
+      </p>
+
+      <p>
+        🔋 Did you know that you can save battery the darker the background? If
+        the display of your device uses OLED it'll need less energy because dark
+        areas require fewer to no lighting.
+      </p>
+
+      <div id="blackmyscreen">Loading..</div>
+
+      <section class="gaiama">
+        <img
+          src="https://www.gaiama.org/gaiama_pictogram.png"
+          alt="GaiAmaLogo"
+          width="120"
+          height="120"
+        />
+        <div>
+          <p>
+            This website is completely free of charge! Yet, as I'm living in the
+            jungle of Perú to protect its remaining rainforests, I'd like to use
+            this opportunity to ask for a donation of any amount so I can
+            continue my work for the planet.
+          </p>
+          <p>
+						Via <a href="https://www.paypal.com/cgi-bin/webscr?hosted_button_id=5HFKFRYSFPJTU&cmd=_s-xclick">PayPal</a>
+					</p>
+
+          <p>
+						<p>
+							or by making your next Amazon purchase via one of those links
+						</p> <p>
+							<a
+								target="_blank"
+								href="https://www.amazon.com?&_encoding=UTF8&tag=canrau-20&linkCode=ur2&linkId=ec6f8d1a20517adfd103e9241830c79d&camp=1789&creative=9325"
+								>Amazon.com</a
+							> | <a target="_blank" href="https://www.amazon.de?&_encoding=UTF8&tag=cara0f-21&linkCode=ur2&linkId=174406bdb90287801fab97f7a18e84b3&camp=1638&creative=6742">Amazon.de</a>
+						</p>
+					</p>
+          <p>
+            Alternatively you can go to
+            <a href="https://www.gaiama.org/en/donate">GaiAma.org</a> and make a
+            general donation to our association.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h3>Open-Source</h3>
+        <p>
+          This website & its source-code are hosted on
+          <a href="https://github.com/BlackMyScreen/BlackMyScreen.github.io">
+            GitHub</a
+          >.
+        </p>
+        <p>
+          The idea for this mini-project was inspired by
+          <a href="https://schwarzes-bild.de/">schwarzes-bild.de</a> and my
+          interest in the HTML <code>&lsaquo;canvas/&rsaquo;</code> element.
+        </p>
+      </section>
+
+      <section>
+        <p>
+          <a href="https://en.wikipedia.org/wiki/OLED#Advantages">
+            Wikipedia about OLED and it's advantages
+          </a>
+        </p>
+      </section>
+
+      <section>
+        <h3>Privacy</h3>
+        <p>
+					This website is completely statically hosted by GitHub.com so they're the only once able to access any server logs. Check out their <a href="https://help.github.com/en/github/site-policy/github-privacy-statement">privacy statement</a>.
+        </p>
+        <p>
+					Other than that I'm using the 100% privacy first pageview counter <a href="https://www.goatcounter.com/">GoatCounter</a> which I can highly recommend, as it's open-source and doesn't track users 👏. You can access the stats of BlackMyScreen at <a href="https://blackmyscreen.goatcounter.com">blackmyscreen.goatcounter.com</a>
+        </p>
+      </section>
+
+      <section class="legal">
+        <p>
+          Responsible for this website is
+          <a href="https://www.canrau.com">CanRau.com</a>
+        </p>
+      </section>
+    </div>
+
+    <script
+      data-goatcounter="https://blackmyscreen.goatcounter.com/count"
+      async
+      src="https://gc.zgo.at/count.js"
+    ></script>
+  </body>
 </html>
