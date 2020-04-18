@@ -2,8 +2,8 @@
   "version": 3,
   "file": "bundle.css",
   "sources": [
-    "../../App.svelte",
-    "../../Button.svelte"
+    "../App.svelte",
+    "../Button.svelte"
   ],
   "sourcesContent": [
     "<script>\n  import { onMount } from \"svelte\";\n  import BlackBackground from \"./backgrounds/BlackBackground.svelte\";\n  import IFeelLucky from \"./backgrounds/IFeelLucky.svelte\";\n\n  let innerWidth = window.innerWidth;\n  let innerHeight = window.innerHeight;\n\n  $: width = innerWidth * 2;\n  $: height = innerHeight * 2;\n\n  function reset() {\n    width = window.innerWidth * 2;\n    height = window.innerHeight * 2;\n  }\n</script>\n\n<style>\n  .size-controls {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n  }\n  .size-control {\n    font-size: 1.1rem;\n    width: 4.2rem;\n    border: 1px solid #ececec80;\n    padding: 0.3rem;\n    background-color: #222;\n    color: #ececec;\n    border-radius: 0.5rem;\n  }\n  .size-controls-operator {\n    margin: 0 0.4rem;\n  }\n  .size-reset {\n    margin-left: 0.4rem;\n    padding: 0.53rem 1rem;\n    background-color: #000;\n    color: #fff;\n    border: none;\n    border-radius: 0.5rem;\n    font-size: 1.1rem;\n    font-family: sans-serif;\n  }\n</style>\n\n<svelte:window bind:innerWidth bind:innerHeight />\n\n<main>\n  <h5>Your current devices display dimensions * 2</h5>\n  <div class=\"size-controls\">\n    <input class=\"size-control\" type=\"number\" bind:value={width} />\n    <span class=\"size-controls-operator\">X</span>\n    <input class=\"size-control\" type=\"number\" bind:value={height} />\n    <button class=\"size-reset\" type=\"button\" on:click={reset}>Reset</button>\n  </div>\n\n  <section>\n    <BlackBackground {width} {height} />\n  </section>\n\n  <section>\n    <IFeelLucky {width} {height} />\n  </section>\n</main>\n",
