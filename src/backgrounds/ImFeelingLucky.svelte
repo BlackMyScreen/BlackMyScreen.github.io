@@ -52,6 +52,7 @@
 
     return () => {
       cancelAnimationFrame(frame);
+      if (canvasWorker) canvasWorker.terminate();
     };
   });
 </script>
