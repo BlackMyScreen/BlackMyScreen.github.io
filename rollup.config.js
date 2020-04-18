@@ -60,7 +60,7 @@ export default {
     file: "bundle-[hash].js",
   },
   plugins: [
-    del({ runOnce: true, targets: ["bundle-*", "index.html"] }),
+    del({ runOnce: false, targets: ["bundle-*", "index.html"] }),
     svelte({
       dev: !production,
       // css: (css) => {
