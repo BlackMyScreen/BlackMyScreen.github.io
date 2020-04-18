@@ -72,7 +72,19 @@
     animated.
   </p>
 
-  <canvas bind:this={canvas} {width} {height} />
+  <figure>
+    <canvas bind:this={canvas} {width} {height} />
+    <figcaption>
+      By
+      <a
+        href="https://twitter.com/canrau"
+        data-goatcounter-click
+        rel="noopener">
+        @CanRau
+      </a>
+    </figcaption>
+  </figure>
+
   {#if base64Url}
     <Button href={base64Url} filename="ImFeelingLucky.png">Download</Button>
   {/if}
