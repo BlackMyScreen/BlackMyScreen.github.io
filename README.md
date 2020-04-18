@@ -1,5 +1,7 @@
 # BlackMyScreen
 
+![BlackMyScreen Logo](assets/BlackMyScreen.png)
+
 ## What?
 
 Visit [BlackMyScreen.github.io](https://BlackMyScreen.github.io) to download a black background image for your phone, tablet or desktop.
