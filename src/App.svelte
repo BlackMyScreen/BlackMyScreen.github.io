@@ -1,24 +1,24 @@
 <script>
   import { onMount } from "svelte";
   import BlackBackground from "./backgrounds/BlackBackground.svelte";
-  import IFeelLucky from "./backgrounds/IFeelLucky.svelte";
+  import ImFeelLucky from "./backgrounds/ImFeelLucky.svelte";
 
   let innerWidth = window.innerWidth;
   let innerHeight = window.innerHeight;
 
-  $: width = innerWidth * 2;
-  $: height = innerHeight * 2;
+  $: width = innerWidth;
+  $: height = innerHeight;
 
   function reset() {
-    width = window.innerWidth * 2;
-    height = window.innerHeight * 2;
+    width = window.innerWidth;
+    height = window.innerHeight;
   }
 </script>
 
-<svelte:window bind:innerWidth bind:innerHeight />
+<!-- <svelte:window bind:innerWidth bind:innerHeight /> -->
 
 <main>
-  <h5>Your current devices display dimensions * 2</h5>
+  <h5>Your current devices display dimensions</h5>
   <div class="size-controls">
     <input class="size-control" type="number" bind:value={width} />
     <span class="size-controls-operator">X</span>
@@ -31,6 +31,6 @@
   </section>
 
   <section>
-    <IFeelLucky {width} {height} />
+    <ImFeelLucky {width} {height} />
   </section>
 </main>
