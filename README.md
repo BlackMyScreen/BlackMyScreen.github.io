@@ -20,6 +20,8 @@ The "I'm Feeling Lucky" background comes almost straight from the Svelte tutoria
 
 Update: The animation is now using a dedicated **WebWorker** 🚀 to calculate the next colors, which made the whole site much more responsive. Before that even hovering a link would take seconds before it changed its colors 😬
 
+Rollup livereload is currently not properly working 😕
+
 ## Why ask for money?
 
 Even though it's completely free, didn't cost me any actual money and I made it for fun, I ask for support as I moved to Perú, founded a non-profit and am working full time in rainforest conservation to help sustain our planet. If you like what I do please consider donating any amount via one of the many options so I can continue my work & protect more rainforest.
