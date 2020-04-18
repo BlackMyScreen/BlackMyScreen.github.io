@@ -19,7 +19,8 @@
       h3,
       h4,
       h5,
-      h6 {
+      h6,
+      .download-button-container {
         text-align: center;
       }
       section {
@@ -43,6 +44,14 @@
         max-width: 35rem;
         margin: 0 auto;
       }
+      .button {
+        display: inline-block;
+        margin: 2rem auto 0;
+        padding: 0.7rem 1.4rem;
+        background-color: #000;
+        color: #fff;
+        border-radius: 0.5rem;
+      }
       @media (min-width: 660px) {
         .gaiama {
           display: flex;
@@ -55,10 +64,36 @@
       .legal {
         font-size: 0.9rem;
       }
+      .size-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .size-control {
+        font-size: 1.1rem;
+        width: 4.2rem;
+        border: 1px solid #ececec80;
+        padding: 0.3rem;
+        background-color: #222;
+        color: #ececec;
+        border-radius: 0.5rem;
+      }
+      .size-controls-operator {
+        margin: 0 0.4rem;
+      }
+      .size-reset {
+        margin-left: 0.4rem;
+        padding: 0.53rem 1rem;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        border-radius: 0.5rem;
+        font-size: 1.1rem;
+        font-family: sans-serif;
+      }
     </style>
 
     <link rel="icon" type="image/png" href="/assets/favicon.png" />
-    <link rel="stylesheet" href="/build/bundle.css" />
     <script defer src="/build/bundle.js"></script>
     
     <link rel="canonical" href="https://blackmyscreen.github.io/"/>

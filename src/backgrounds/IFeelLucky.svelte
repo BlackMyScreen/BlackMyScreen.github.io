@@ -45,10 +45,6 @@
   });
 </script>
 
-<style>
-
-</style>
-
 <main>
   <h2>I Feel Lucky</h2>
 

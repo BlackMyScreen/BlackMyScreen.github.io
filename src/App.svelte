@@ -15,36 +15,6 @@
   }
 </script>
 
-<style>
-  .size-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .size-control {
-    font-size: 1.1rem;
-    width: 4.2rem;
-    border: 1px solid #ececec80;
-    padding: 0.3rem;
-    background-color: #222;
-    color: #ececec;
-    border-radius: 0.5rem;
-  }
-  .size-controls-operator {
-    margin: 0 0.4rem;
-  }
-  .size-reset {
-    margin-left: 0.4rem;
-    padding: 0.53rem 1rem;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 1.1rem;
-    font-family: sans-serif;
-  }
-</style>
-
 <svelte:window bind:innerWidth bind:innerHeight />
 
 <main>
