@@ -167,6 +167,10 @@
       </section>
     </div>
 
+    <script>
+      if (window.location.hash === '#skipgc') localStorage.setItem('skipgc', 't')
+      window.goatcounter = {no_onload: localStorage.getItem('skipgc') === 't'}
+    </script>
     <script
       data-goatcounter="https://blackmyscreen.goatcounter.com/count"
       async
