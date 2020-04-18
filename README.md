@@ -2,6 +2,10 @@
 
 ![BlackMyScreen Logo](assets/BlackMyScreen.png)
 
+<p align="right">
+  Made with <a href="https://BlackMyScreen.github.io">BlackMyScreen.github.io</a> 😉
+</p>
+
 ## What?
 
 Visit [BlackMyScreen.github.io](https://BlackMyScreen.github.io) to download a black background image for your phone, tablet or desktop.
