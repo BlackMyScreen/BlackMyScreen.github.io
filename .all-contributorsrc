@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "CanRau",
+      "name": "Can Rau",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/5196971?v=4",
+      "profile": "https://www.GaiAma.org",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "BlackMyScreen.github.io",
+  "projectOwner": "BlackMyScreen",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
