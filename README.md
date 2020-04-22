@@ -36,12 +36,6 @@ Even though it's completely free, didn't cost me any actual money and I made it 
 [PayPal](https://www.paypal.com/cgi-bin/webscr?hosted_button_id=5HFKFRYSFPJTU&cmd=_s-xclick)
 | [Amazon.com](https://www.amazon.com?&_encoding=UTF8&tag=canrau-20&linkCode=ur2&linkId=ec6f8d1a20517adfd103e9241830c79d&camp=1789&creative=9325) | [Amazon.de](https://www.amazon.de?&_encoding=UTF8&tag=cara0f-21&linkCode=ur2&linkId=174406bdb90287801fab97f7a18e84b3&camp=1638&creative=6742) | [GaiAma.org](https://www.gaiama.org/en/donate)
 
-## License
-
-Feel free to stroll thru the source and take what you need.
-
-[MIT](license) © [Can Rau](https://www.canrau.com/)
-
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -60,3 +54,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## License
+
+Feel free to stroll thru the source and take what you need.
+
+[MIT](license) © [Can Rau](https://www.canrau.com/)
