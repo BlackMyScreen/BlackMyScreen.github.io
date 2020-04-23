@@ -7,29 +7,27 @@
 
   let canvas;
   let base64Url;
-  let frame;
+  let ctx;
 
-  onMount(() => {
-    const ctx = canvas.getContext("2d");
-    let frame;
+  function paint() {
+    if (!canvas) return;
+    if (!ctx) {
+      ctx = canvas.getContext("2d");
+    }
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0, 0, width, height);
+    base64Url = canvas.toDataURL("image/png;base64");
+    console.log("paint");
+  }
 
-    (function loop() {
-      frame = requestAnimationFrame(loop);
+  onMount(paint);
 
-      ctx.fillStyle = "#000";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      base64Url = canvas.toDataURL("image/png;base64");
-    })();
-
-    return () => {
-      cancelAnimationFrame(frame);
-    };
-  });
+  $: width && height && window.setTimeout(paint, 50);
 </script>
 
 <figure>
   <canvas bind:this={canvas} {width} {height} />
+
   <figcaption>
     By
     <a href="https://twitter.com/canrau" data-goatcounter-click rel="noopener">

@@ -31,13 +31,13 @@
       } else {
         for (let p = 0; p < imageData.data.length; p += 4) {
           const i = p / 4;
-          const x = i % canvas.width;
-          const y = (i / canvas.height) >>> 0;
+          const x = i % width;
+          const y = (i / height) >>> 0;
 
           const t = window.performance.now();
 
-          const r = 64 + (128 * x) / canvas.width + 64 * Math.sin(t / 1000);
-          const g = 64 + (128 * y) / canvas.height + 64 * Math.cos(t / 1000);
+          const r = 64 + (128 * x) / width + 64 * Math.sin(t / 1000);
+          const g = 64 + (128 * y) / height + 64 * Math.cos(t / 1000);
           const b = 128;
 
           imageData.data[p + 0] = r;
