@@ -17,7 +17,6 @@
     ctx.fillStyle = "#000";
     ctx.fillRect(0, 0, width, height);
     base64Url = canvas.toDataURL("image/png;base64");
-    console.log("paint");
   }
 
   onMount(paint);
